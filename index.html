@@ -2,14 +2,19 @@
 <html>
     <head>
         <link rel="stylesheet" href="style.css">
-        <script src="script.js"></script>
+        <script src="script.js" defer></script>
     </head>
     <body>
-        <div>
-            <h1>
-                Rock, Paper, Scissors!
-            </h1>
-            <p>Hit refresh to play again</p>
+        <div id="shapes">
+            <div id="rockshape" class="shapes"></div>
+            <div id="papershape" class="shapes"></div>
+            <div id="scissorsshape" class="shapes">
+                <div id="scissors1"></div>
+                <div id="scissors2"></div>
+            </div>
+        </div>
+        <div id="game">
+            <div id="choose">choose</div>
         </div>
     </body>
 </html>

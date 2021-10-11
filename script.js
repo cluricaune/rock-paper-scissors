@@ -133,6 +133,56 @@ function slashShape() {
     document.querySelector("#game").appendChild(slashShape);
 }
 
+function endGameLose() {
+   if (computerScore >= 5) {
+       let endOverlay = document.createElement("div");
+       endOverlay.setAttribute("id", "endoverlay");
+       endOverlay.style.display = "block";
+       endOverlay.style.position = "absolute";
+       endOverlay.style.width = "100%";
+       endOverlay.style.height = "100%";
+       endOverlay.style.backgroundColor = "rgba(255, 0, 0, 0.3)";
+       let youLose = document.createElement("div");
+       youLose.innerHTML = "YOU LOSE";
+       youLose.style.display = "flex";
+       youLose.style.justifyContent = "center";
+       youLose.style.alignItems = "center";
+       youLose.style.height = "100%";
+       youLose.style.fontFamily = "Helvetica, sans-serif";
+       youLose.style.fontSize = "200px";
+       youLose.style.fontWeight = "bold";
+       youLose.style.color = "red";
+       youLose.style.filter = "drop-shadow(5px 5px 0px black)";
+       document.querySelector("html").appendChild(endOverlay);
+       document.querySelector("#endoverlay").appendChild(youLose);
+   }
+}
+
+function endGameWin() {
+    if (playerScore >= 5) {
+        let endOverlay = document.createElement("div");
+        endOverlay.setAttribute("id", "endoverlay");
+        endOverlay.style.display = "block";
+        endOverlay.style.position = "absolute";
+        endOverlay.style.width = "100%";
+        endOverlay.style.height = "100%";
+        endOverlay.style.backgroundColor = "rgba(0, 255, 255, 0.3)";
+        let youWin = document.createElement("div");
+        youWin.innerHTML = "YOU WIN";
+        youWin.style.display = "flex";
+        youWin.style.justifyContent = "center";
+        youWin.style.alignItems = "center";
+        youWin.style.height = "100%";
+        youWin.style.fontFamily = "Helvetica, sans-serif";
+        youWin.style.fontSize = "200px";
+        youWin.style.fontWeight = "bold";
+        youWin.style.color = "rgb(0, 255, 255)";
+        youWin.style.filter = "drop-shadow(5px 5px 0px black)";
+        document.querySelector("html").appendChild(endOverlay);
+        document.querySelector("#endoverlay").appendChild(youWin);
+    }
+ }
+
 const rock = document.querySelector('#rockshape');
 const paper = document.querySelector('#papershape');
 const scissors = document.querySelector('#scissorsshape');
@@ -178,7 +228,8 @@ rock.addEventListener('click', () => {
             } else if (result.rs === "CW") {
               document.querySelector("#computerscore").innerHTML = result.cs;
             }
-          
+            endGameWin();
+            endGameLose();
             console.log(result);
             clearInterval(id);
         }
@@ -227,7 +278,8 @@ paper.addEventListener('click', () => {
             } else if (result.rs === "CW") {
                 document.querySelector("#computerscore").innerHTML = result.cs;
             }
-        
+            endGameWin();
+            endGameLose();
             console.log(result);
             clearInterval(id);
         }
@@ -277,11 +329,13 @@ scissors.addEventListener('click', () => {
             } else if (result.rs === "CW") {
                 document.querySelector("#computerscore").innerHTML = result.cs;
             }
-        
+            endGameWin();
+            endGameLose();
             console.log(result);
             clearInterval(id);
         }
         count++;
     }
+    
 });
 

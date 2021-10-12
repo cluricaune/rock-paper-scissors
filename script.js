@@ -141,20 +141,34 @@ function endGameLose() {
        endOverlay.style.position = "absolute";
        endOverlay.style.width = "100%";
        endOverlay.style.height = "100%";
-       endOverlay.style.backgroundColor = "rgba(255, 0, 0, 0.3)";
+       endOverlay.style.backgroundColor = "rgba(255, 0, 0, 0.7)";
        let youLose = document.createElement("div");
+       youLose.setAttribute("id", "youlose");
        youLose.innerHTML = "YOU LOSE";
        youLose.style.display = "flex";
+       youLose.style.flexDirection = "column";
        youLose.style.justifyContent = "center";
        youLose.style.alignItems = "center";
        youLose.style.height = "100%";
        youLose.style.fontFamily = "Helvetica, sans-serif";
        youLose.style.fontSize = "200px";
        youLose.style.fontWeight = "bold";
-       youLose.style.color = "red";
+       youLose.style.color = "white";
        youLose.style.filter = "drop-shadow(5px 5px 0px black)";
+       let resetBtn = document.createElement("div");
+       resetBtn.setAttribute("id", "resetbtn");
+       resetBtn.innerHTML = "&#x21bb;";
+       resetBtn.style.display = "flex";
+       resetBtn.style.justifyContent = "center";
+       resetBtn.style.alignItems = "center";
+       resetBtn.style.color = "white";
        document.querySelector("html").appendChild(endOverlay);
        document.querySelector("#endoverlay").appendChild(youLose);
+       document.querySelector("#youlose").appendChild(resetBtn);
+
+       resetBtn.addEventListener('click', () => {
+        location.reload();
+    });
    }
 }
 
@@ -166,10 +180,12 @@ function endGameWin() {
         endOverlay.style.position = "absolute";
         endOverlay.style.width = "100%";
         endOverlay.style.height = "100%";
-        endOverlay.style.backgroundColor = "rgba(0, 255, 255, 0.5)";
+        endOverlay.style.backgroundColor = "rgba(0, 255, 255, 0.7)";
         let youWin = document.createElement("div");
+        youWin.setAttribute("id", "youwin");
         youWin.innerHTML = "YOU WIN";
         youWin.style.display = "flex";
+        youWin.style.flexDirection = "column";
         youWin.style.justifyContent = "center";
         youWin.style.alignItems = "center";
         youWin.style.height = "100%";
@@ -178,8 +194,20 @@ function endGameWin() {
         youWin.style.fontWeight = "bold";
         youWin.style.color = "rgb(255, 255, 255)";
         youWin.style.filter = "drop-shadow(5px 5px 0px rgb(0, 0, 0))";
+        let resetBtn = document.createElement("div");
+        resetBtn.setAttribute("id", "resetbtn");
+        resetBtn.innerHTML = "&#x21bb;";
+        resetBtn.style.display = "flex";
+        resetBtn.style.justifyContent = "center";
+        resetBtn.style.alignItems = "center";
+        resetBtn.style.color = "white";
         document.querySelector("html").appendChild(endOverlay);
         document.querySelector("#endoverlay").appendChild(youWin);
+        document.querySelector("#youwin").appendChild(resetBtn);
+
+        resetBtn.addEventListener('click', () => {
+            location.reload();
+        });
     }
  }
 

@@ -166,7 +166,7 @@ function endGameWin() {
         endOverlay.style.position = "absolute";
         endOverlay.style.width = "100%";
         endOverlay.style.height = "100%";
-        endOverlay.style.backgroundColor = "rgba(0, 255, 255, 0.3)";
+        endOverlay.style.backgroundColor = "rgba(0, 255, 255, 0.5)";
         let youWin = document.createElement("div");
         youWin.innerHTML = "YOU WIN";
         youWin.style.display = "flex";
@@ -176,8 +176,8 @@ function endGameWin() {
         youWin.style.fontFamily = "Helvetica, sans-serif";
         youWin.style.fontSize = "200px";
         youWin.style.fontWeight = "bold";
-        youWin.style.color = "rgb(0, 255, 255)";
-        youWin.style.filter = "drop-shadow(5px 5px 0px black)";
+        youWin.style.color = "rgb(255, 255, 255)";
+        youWin.style.filter = "drop-shadow(5px 5px 0px rgb(0, 0, 0))";
         document.querySelector("html").appendChild(endOverlay);
         document.querySelector("#endoverlay").appendChild(youWin);
     }
